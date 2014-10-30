@@ -56,8 +56,9 @@ strToULong:
 	nop
 	
 	set	ptrError, %l2
+	ld	[%l2],%l3
 	
-	st	%l2,[%l1]
+	st	%l3,[%l1]
 
 	mov	-1,%i0
 	ret
