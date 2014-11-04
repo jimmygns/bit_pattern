@@ -114,7 +114,7 @@ loop2:
 	
 	and	%l1, %l4, %l5
 	cmp	%l5,%l4
-	bne	loop10
+	bne	loop20
 	nop
 
 	mov	star, %o0
@@ -167,14 +167,14 @@ loop20:
 	nop
 
 loop21:
-	sll	%l0,1,%l0
+	sll	%l1,1,%l1
 	inc	%l6
 
 	ba	loop2
 	nop
 
 end:
-	mov	NL,%O0
+	mov	NL,%o0
 	call	printChar
 	nop
 
