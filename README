@@ -85,7 +85,11 @@ This is an example:
 
         Converting "9999999999999" base "0": Result too large
 > quit
-  
+
+[cs30xen@ieng9]:pa2:526$ ./pa2 lol lol
+
+        Usage: /home/solaris/ieng9/cs30x/cs30xen/pa2/pa2 [filename]
+
 
 Testing:
 

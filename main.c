@@ -11,6 +11,7 @@
 #include <errno.h>
 #include <stdlib.h>
 #include <string.h>
+#include <limits.h>
 
 #include "pa2.h"
 #include "strings.h"
@@ -35,15 +36,24 @@ int main(int argc, char *argv[]){
   FILE *inFile;
 
   if(argc>2){
-    (void)fprintf(stderr,STR_USAGE_MSG,argv[0]);
+    char bufPath[PATH_MAX+1];
+    char *res =realpath(argv[0],bufPath);
+    if(res)
+      (void)fprintf(stderr,STR_USAGE_MSG,bufPath);
     return 0;
   }
 
   if(argc==1){
     prompt=TRUE;
   }
-  else
+  else if(argc==2){
     inFile=fopen(argv[1],"r");
+    if(inFile==0){
+      (void)fprintf(stderr,"%s: No such file or directory\n",argv[1]);
+      return 0;
+    }
+  }
+
 
 
   char buf[BUFSIZ]={0};
