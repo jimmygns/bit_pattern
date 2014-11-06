@@ -9,15 +9,6 @@
  */
 
 	
-	.global errno
-
-	
-
-	.section ".bss"
-
-	.align 4
-errno:
-	.skip 4
 
 
 	.global strToULong

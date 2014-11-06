@@ -1,0 +1,117 @@
+/*
+ * Filename: README
+ * Author: jinye xu
+ * Userid: cs30xen
+ * Date: 11/2/2014
+ */ 
+
+Description:
+
+  This program takes either no input argument or 1 filestream input and
+prints patterns to the terminal in correspendence to the commands. It has
+modes: interactive which reads commands from stdin from the command line;
+file input mode which reads line by line from the file provided.
+
+How to compile:
+
+  To compile this program, I put all the source files in the same directory
+and type "make" which should initiate the makefile and compile everything.
+
+How to run:
+
+  To run this program, either type the excutatble name, or type the excutable
+name followed by 1 filename argument.
+  
+  For example:
+
+  	./pa2
+
+	./pa2 input
+	(input is an exisiting file)
+
+Normal ouput:
+
+  Normal ouput will be printed to the terminal. An example of normal output
+would be the following:
+
+[cs30xen@ieng9]:pa2:512$ ./pa2
+---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- 
+> set 1 1
+---- ---- ---- ---- ---- ---- ---- ---* ---- ---- ---- ---- ---- ---- ---- ---* 
+> ripple 3
+---- ---- ---- ---- ---- ---- ---- --*- ---- ---- ---- ---- ---- ---- ---- --*- 
+---- ---- ---- ---- ---- ---- ---- -*-- ---- ---- ---- ---- ---- ---- ---- -*-- 
+---- ---- ---- ---- ---- ---- ---- *--- ---- ---- ---- ---- ---- ---- ---- *--- 
+> quit
+
+[cs30xen@ieng9]:pa2:515$ ./pa2 input
+---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- 
+---- ---- ---- ---- ---- ---- ---- --*- ---- ---- ---- ---- ---- ---- ---- --** 
+---- ---- ---- ---- ---- ---- ---- --*- ---- ---- ---- ---- ---- ---- ---- --*- 
+---- ---- ---- ---- ---- ---- -*-* -*** ---- ---- ---- ---- ---- ---- ---- ---* 
+---- ---- ---- ---- ---- ---- ---- *-*- ***- ---- ---- ---- ---- ---- ---- ---- 
+---- ---- ---- ---- ---- ---- ---- **** ***- ---- ---- ---- ---- ---- ---- ---* 
+[cs30xen@ieng9]:pa2:516$ cat input
+set 2 3
+clear 5 1
+toggle 0x55 3
+shift -3
+set 5 1
+quit
+
+
+Abnormal output:
+
+  Abnormal output is printed to the terminal in the stderr. This can occur
+if either input doesn't satisfy the requirements or the input arguments are 
+not valid. The error message would be displayed.
+This is an example:
+
+[cs30xen@ieng9]:pa2:517$ ./pa2      
+---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- 
+> set
+
+        Argument(s) required for this command. Type "help" for more info.
+
+> set 1
+
+        A 2nd argument is required for this command.
+
+> set abc abc
+
+        "abc" is not an integer
+
+> set 9999999999999 9
+
+        Converting "9999999999999" base "0": Result too large
+> quit
+  
+
+Testing:
+
+  This program was tested using unit testing. 
+        testcheckCmd.c
+        teststrToULong.c              
+	testset.c
+        testclear.c
+        testtoggle.c
+        testshift.c
+        testripple.c
+  are the test files. They should all pass the testing or 
+  print the correct pattern to the terminal. Test inputs included all
+  the edges and both positive and negative numbers.
+
+
+Question:
+
+1). backtrace
+
+2). disassemble
+
+3). Y
+    Vd
+
+4). u
+    CTRL-R
+
+5). ls -a

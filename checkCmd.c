@@ -7,6 +7,9 @@
  * Source of Help:Piazza
  */
  
+
+#include <string.h>
+
 #include "pa2.h"
 #include "strings.h"
 
